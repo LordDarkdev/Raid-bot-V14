@@ -31,6 +31,9 @@ client.aliases = new Discord.Collection();
 require("./handler/prefixCommands.js")(client);
 require("./handler/eventos.js")(client);
 
+client.on('ready', async(client, message) => {
+  console.log('[ Bot Online !]')
+})
 client.login(
   ""
 );
