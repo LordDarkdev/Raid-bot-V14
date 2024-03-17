@@ -3,8 +3,6 @@ const { readdirSync } = require("fs");
 
 module.exports = async(client) => {
       readdirSync('./commands/').forEach(dir => {
-        
-console.log(`[Os comandos estão sendo carregados...]`)
          
         const commands = readdirSync(`./commands/${dir}`).filter(file => file.endsWith('.js'));
 
@@ -19,7 +17,6 @@ console.log(`[Os comandos estão sendo carregados...]`)
 
                 pull.category = dir;
                 client.commands.set(pull.name, pull);
-              console.log(`\x1b[32m%s\x1b[0m`,`${pull.name} carregado com sucesso`);
             } catch (err) {
                 console.log(`Erro ao carregar o comando ${file}, error: ${err}`)
                 continue;
@@ -31,4 +28,5 @@ console.log(`[Os comandos estão sendo carregados...]`)
             }
         }
     })
-};
+    console.log("[ Comandos carregados ! ]")
+}
